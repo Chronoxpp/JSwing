@@ -26,39 +26,103 @@ public class Exemplo16 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pneBorder = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(200, 150));
-        getContentPane().setLayout(new java.awt.FlowLayout(0, 20, 40));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
+        jPanel1.setLayout(new java.awt.GridLayout(5, 1, 20, 40));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2);
+        jButton1.setText("Botão1");
+        jPanel1.add(jButton1);
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3);
+        jButton2.setText("Botão2");
+        jPanel1.add(jButton2);
 
-        jButton4.setText("jButton4");
-        getContentPane().add(jButton4);
+        jButton3.setText("Botão3");
+        jPanel1.add(jButton3);
 
-        jButton5.setText("jButton5");
-        getContentPane().add(jButton5);
+        jButton4.setText("Botão4");
+        jPanel1.add(jButton4);
 
-        jButton6.setText("jButton6");
-        getContentPane().add(jButton6);
+        jButton5.setText("Botão5");
+        jPanel1.add(jButton5);
+
+        pneBorder.addTab("Grid", jPanel1);
+
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 20, 40));
+
+        jButton6.setText("Botão6");
+        jPanel2.add(jButton6);
+
+        jButton7.setText("Botão7");
+        jPanel2.add(jButton7);
+
+        jButton8.setText("Botão8");
+        jPanel2.add(jButton8);
+
+        jButton9.setText("Botão9");
+        jPanel2.add(jButton9);
+
+        jButton10.setText("Botão10");
+        jPanel2.add(jButton10);
+
+        pneBorder.addTab("Flow", jPanel2);
+
+        jPanel3.setLayout(new java.awt.BorderLayout(20, 40));
+
+        jButton11.setText("Botão13");
+        jPanel3.add(jButton11, java.awt.BorderLayout.CENTER);
+
+        jButton12.setText("Botão12");
+        jPanel3.add(jButton12, java.awt.BorderLayout.LINE_START);
+
+        jButton13.setText("Botão15");
+        jPanel3.add(jButton13, java.awt.BorderLayout.PAGE_END);
+
+        jButton14.setText("Botão14");
+        jPanel3.add(jButton14, java.awt.BorderLayout.LINE_END);
+
+        jButton15.setText("Botão11");
+        jPanel3.add(jButton15, java.awt.BorderLayout.PAGE_START);
+
+        pneBorder.addTab("Border", jPanel3);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pneBorder, javax.swing.GroupLayout.PREFERRED_SIZE, 391, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pneBorder, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -98,10 +162,23 @@ public class Exemplo16 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTabbedPane pneBorder;
     // End of variables declaration//GEN-END:variables
 }
