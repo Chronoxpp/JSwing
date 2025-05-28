@@ -4,6 +4,10 @@
  */
 package view;
 
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Wanderson
@@ -47,6 +51,8 @@ public class Exemplo18 extends javax.swing.JFrame {
         lblNumeroPedido.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         lblNumeroPedido.setText("Pedido");
 
+        txtNumeroPedido.setText("0001");
+
         lblNomeProduto.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         lblNomeProduto.setText("Produto");
 
@@ -59,8 +65,18 @@ public class Exemplo18 extends javax.swing.JFrame {
         txtValorUnitario.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnAdicionar.setText("Adicionar");
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
 
         btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
 
         txtTotalPedido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotalPedido.setEnabled(false);
@@ -80,7 +96,7 @@ public class Exemplo18 extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -188,6 +204,98 @@ public class Exemplo18 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        DecimalFormat formatoMonetario = new DecimalFormat("#,###.00");
+        formatoMonetario.setMaximumFractionDigits(2);
+        formatoMonetario.setMinimumFractionDigits(2);
+        
+        if (txtNomeProduto.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Insira um nome para o produto!");
+            txtNomeProduto.requestFocus();
+            return;
+        }
+        String nomeProduto = txtNomeProduto.getText();
+        
+        double quantidade = 0;
+        try
+        {
+            quantidade = Double.parseDouble(txtQuantidade.getText());
+            
+            if(quantidade <= 0)
+            {
+                throw new Exception("A quantidade deve ser maior que 0!");
+            }
+        }
+        catch(Exception erro)
+        {
+            JOptionPane.showMessageDialog(null, "Erro(quantidade): " + erro.getMessage());
+            txtQuantidade.requestFocus();
+            return;
+        }
+        
+        
+        double valorUnitario = 0;
+        try
+        {
+            valorUnitario = Double.parseDouble(txtValorUnitario.getText());
+            
+            if(valorUnitario < 0)
+            {
+                throw new Exception("O valor unitario deve ser igual ou maior que 0!");
+            }
+        }
+        catch(Exception erro)
+        {
+            JOptionPane.showMessageDialog(null, "Erro(valor unitario): " + erro.getMessage());
+            txtValorUnitario.requestFocus();
+            return;
+        }
+        
+        double valorTotal = quantidade * valorUnitario;
+        
+        DefaultTableModel model = (DefaultTableModel) tblItensPedido.getModel();
+        model.addRow(new Object[]{nomeProduto, "" + quantidade, "" + formatoMonetario.format(valorUnitario), "" + formatoMonetario.format(quantidade * valorUnitario)});
+        
+        txtTotalPedido.setText("" + formatoMonetario.format(calcularTotal()));
+        
+        limparFormulario();
+    }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        int[] linhasSelecionadas = tblItensPedido.getSelectedRows();
+        DefaultTableModel model = (DefaultTableModel) tblItensPedido.getModel();
+        for(int i = (linhasSelecionadas.length - 1); i>= 0; i -= 1)
+        {
+            model.removeRow(linhasSelecionadas[i]);
+        }
+        
+        calcularTotal();
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private double calcularTotal()
+    {
+        double total = 0;
+        for(int linha = 0; linha < tblItensPedido.getRowCount(); linha += 1)
+        {
+            String valor = "" + tblItensPedido.getValueAt(linha, 3);
+            valor = valor.replace(".", "");
+            valor = valor.replace(",", ".");
+            total += Double.parseDouble(valor);
+        }
+        
+        return total;
+    }
+    
+    private void limparFormulario()
+    {
+        txtNomeProduto.setText("");
+        txtQuantidade.setText("1");
+        txtValorUnitario.setText("");
+        
+        txtNomeProduto.requestFocus();
+    }
+    
     /**
      * @param args the command line arguments
      */

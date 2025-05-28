@@ -140,6 +140,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNumeroPedido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0001"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNomeProduto">
           <Properties>
@@ -178,11 +181,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRemover">
           <Properties>
             <Property name="text" type="java.lang.String" value="Remover"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTotalPedido">
           <Properties>
@@ -205,9 +214,6 @@
                 <TitledBorder title="Itens do pedido"/>
               </Border>
             </Property>
-            <Property name="columnHeaderView" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="default"/>
-            </Property>
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
@@ -220,9 +226,9 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="0">
                     <Column editable="false" title="Produto" type="java.lang.String"/>
-                    <Column editable="false" title="Quantidade" type="java.lang.Double"/>
-                    <Column editable="false" title="Pre&#xe7;o unitario" type="java.lang.Double"/>
-                    <Column editable="false" title="Valor total" type="java.lang.Double"/>
+                    <Column editable="false" title="Quantidade" type="java.lang.String"/>
+                    <Column editable="false" title="Pre&#xe7;o unitario" type="java.lang.String"/>
+                    <Column editable="false" title="Valor total" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

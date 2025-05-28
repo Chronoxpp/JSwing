@@ -47,6 +47,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
         mnuSair = new javax.swing.JMenu();
         mniSair = new javax.swing.JMenuItem();
 
@@ -195,6 +196,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuExemplos.add(jMenuItem15);
 
+        jMenuItem16.setText("Exemplo 8.19");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenuExemplos.add(jMenuItem16);
+
         jMenuBar1.add(jMenuExemplos);
 
         mnuSair.setText("Sair");
@@ -311,6 +320,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        Exemplo19 tela = new Exemplo19();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -357,6 +371,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
